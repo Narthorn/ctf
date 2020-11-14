@@ -7,10 +7,6 @@ Keypad Sniffer
 
 ---
 
-Interesting challenge. I made two[¹](#1) big[²](#2) mistakes here.
-
----
-
 >Le code d'accès d'un centre militaire de télécommunications est saisi sur un clavier. Un agent a accédé au matériel (Cf. photos face avant et face arrière du clavier) et a inséré un dispositif pour enregister les données binaires qui transitent sur le connecteur du clavier. Le fichier joint (keypad_sniffer.txt) comprend les données binaires (échantillonnées à une fréquence de 15 kHz) au moment où une personne autorisée rentrait le code d'accès. Retrouvez le code d'accès.
 >
 >Le flag est de la forme DGSESIEE{X} où X est le code saisi
@@ -19,9 +15,9 @@ Interesting challenge. I made two[¹](#1) big[²](#2) mistakes here.
 
 ### Files
 
- * [keypad_sniffer.txt]() (f5660a0b1c8877b67d7e5ce85087138cbd0c061b0b244afc516c489b39a7f79d)
- * [keypad_face.jpg]() (b39c0d732f645fc73f41f0955233bec3593008334a8796d2f1208346f927fef2)
- * [keypad_back.jpg]() (1f5d41c3521d04494779e43a4d5fae7cb14aad44e6e99cf36642ff4e88fab69f)
+ * [](keypad_sniffer.txt) (f5660a0b1c8877b67d7e5ce85087138cbd0c061b0b244afc516c489b39a7f79d)
+ * [](keypad_face.jpg) (b39c0d732f645fc73f41f0955233bec3593008334a8796d2f1208346f927fef2)
+ * [](keypad_back.jpg) (1f5d41c3521d04494779e43a4d5fae7cb14aad44e6e99cf36642ff4e88fab69f)
 
 <img src="keypad_face.jpg" width="40%"/> <img src="keypad_back.jpg" width="40%" />
 
@@ -74,9 +70,11 @@ When writing this, we don't yet really know which bits are rows or columns, and 
 
 ---
 
-<a name="1">¹</a>: First off, I didn't know about keypad scanning, so my reaction upon seeing the textfile with all the binary was "well, i guess it's 8 bits of data, plus 4 bits that's some kind of monotonically increasing counter at the end". So I cut out the last 4 bytes, removed all 0b10111110 (guessing this meant no input since it was the most common, and accidentally being correct), then ran uniq on the file to delete duplicates. I was left with just a few notable lines, each corresponding to a given keystroke. Then, I lost a lot of time fruitlessly trying to coax ascii out of the remaining 8bits, figuring it just had to be jumbled up because the electrical connections on the board looked jumbled up.
+Interesting challenge. I made two big mistakes here.
 
-<a name="2">²</a>: Second, after I had read up on keypad scanning, I figured I could simply filter out all the lines with output 1111 (no key pressed), which is exactly what I had already done in the first step, so I would just have to read the correct bits for this time.
+First off, I didn't know about keypad scanning, so my reaction upon seeing the textfile with all the binary was "well, i guess it's 8 bits of data, plus 4 bits that's some kind of monotonically increasing counter at the end". So I cut out the last 4 bytes, removed all 0b10111110 (guessing this meant no input since it was the most common, and accidentally being correct), then ran uniq on the file to delete duplicates. I was left with just a few notable lines, each corresponding to a given keystroke. Then, I lost a lot of time fruitlessly trying to coax ascii out of the remaining 8bits, figuring it just had to be jumbled up because the electrical connections on the board looked jumbled up.
+
+Second, after I had read up on keypad scanning, I figured I could simply filter out all the lines with output 1111 (no key pressed), which is exactly what I had already done in the first step, so I would just have to read the correct bits for this time.
 
 I still didn't know in which ways to read the keypad, so for every flag I wanted to try, I also had to try all possible variants (transposing the keypad, reverse indexing either rows or columns or both, and all possible combinations). Since nothing I tried seemed to be the answer, I thought that I had missed a different way to read the keypad or the pinout, so I I kept trying hard to come up with variants. Mostly, I came up with things like rotating the keypad 90°, but that turns out to be the same as simultaneously transposing rows/columns and reverse indexing columns - or reverse indexing rows, I forget which.
 
