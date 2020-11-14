@@ -23,7 +23,7 @@ Interesting challenge. I made two[¹](#1) big[²](#2) mistakes here.
  * [keypad_face.jpg]() (b39c0d732f645fc73f41f0955233bec3593008334a8796d2f1208346f927fef2)
  * [keypad_back.jpg]() (1f5d41c3521d04494779e43a4d5fae7cb14aad44e6e99cf36642ff4e88fab69f)
 
-![keypad_face](keypad_face.jpg | width=50) ![keypad_back](keypad_back.jpg | width=50)
+<img src="keypad_face.jpg" width="50%"/> <img src="keypad_back.jpg" width="50%" />
 
 This challenge requires learning how [Keypad Scanning](https://arduinogetstarted.com/tutorials/arduino-keypad) works. A given line, say 101111101110 in keypad_sniffer.txt can be mapped to the pinout in the image as such:
 
