@@ -72,7 +72,7 @@ final_decrypted.txt:
 IVQDQT NHABMPSVBYYUCJIYMJBRDWXAXP  THYVCROD
 ```
 
-The [foulard.txt](foulard.txt) file mentions a M3 machine, which refers to [Enigma](https://en.wikipedia.org/wiki/Cryptanalysis_of_the_Enigma) - as does the name of the message author, [Rejewski](https://en.wikipedia.org/wiki/Marian_Rejewski).
+[foulard.txt](foulard.txt) mentions a M3 machine, which refers to [Enigma](https://en.wikipedia.org/wiki/Cryptanalysis_of_the_Enigma) - as does the name of the message author, [Rejewski](https://en.wikipedia.org/wiki/Marian_Rejewski).
 
 >Uniquement les impairs en ordre croissant
 >
@@ -114,9 +114,7 @@ I'm not sure if those coordinates mean anything.
 
 ---
 
-<a name="1">¹</a>: 
-
-`ceil(sqrt(N))² - N` is a square, so with:
+<a name="1">¹</a>: `ceil(sqrt(N))² - N` is a square, so with:
 ```
 a = ceil(sqrt(N))
 b = sqrt(ceil(sqrt(N)) - N)
