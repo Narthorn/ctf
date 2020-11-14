@@ -25,7 +25,7 @@ Interesting challenge. I made two[¹](#1) big[²](#2) mistakes here.
 
 <img src="keypad_face.jpg" width="40%"/> <img src="keypad_back.jpg" width="40%" />
 
-This challenge requires learning how [Keypad Scanning](https://arduinogetstarted.com/tutorials/arduino-keypad) works. A given line, say 101111101110 in keypad_sniffer.txt can be mapped to the pinout in the image as such:
+This challenge requires learning how [Keypad Scanning](https://arduinogetstarted.com/tutorials/arduino-keypad) works. A given line in [keypad_sniffer.txt](), say 101111101110, can be mapped to the pinout in the image as such:
 
 ```
 power‾|
@@ -38,7 +38,7 @@ ground__|
 
 Each column pin is being sequentially pulled low, and the row pins are read to see if any of them is low; If that's the case, then that means the key at the corresponding row/column has been pressed.
 
-We can write a simple script to simulate the keypad and output the correct letter each time we detect a keypress:
+We can write a [simple script](sniff.py) to simulate the keypad and output the correct letter each time we detect a keypress:
 
 ```python
 #!/usr/bin/python3
