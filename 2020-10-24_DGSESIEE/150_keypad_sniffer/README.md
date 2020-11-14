@@ -15,9 +15,9 @@ Keypad Sniffer
 
 ### Files
 
- * [](keypad_sniffer.txt) (f5660a0b1c8877b67d7e5ce85087138cbd0c061b0b244afc516c489b39a7f79d)
- * [](keypad_face.jpg) (b39c0d732f645fc73f41f0955233bec3593008334a8796d2f1208346f927fef2)
- * [](keypad_back.jpg) (1f5d41c3521d04494779e43a4d5fae7cb14aad44e6e99cf36642ff4e88fab69f)
+ * [keypad_sniffer.txt](keypad_sniffer.txt) (f5660a0b1c8877b67d7e5ce85087138cbd0c061b0b244afc516c489b39a7f79d)
+ * [keypad_face_jpg](keypad_face.jpg) (b39c0d732f645fc73f41f0955233bec3593008334a8796d2f1208346f927fef2)
+ * [keypad_back.jpg](keypad_back.jpg) (1f5d41c3521d04494779e43a4d5fae7cb14aad44e6e99cf36642ff4e88fab69f)
 
 <img src="keypad_face.jpg" width="40%"/> <img src="keypad_back.jpg" width="40%" />
 

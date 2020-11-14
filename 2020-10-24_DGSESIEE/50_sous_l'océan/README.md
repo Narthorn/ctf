@@ -15,7 +15,7 @@ Sous l'océan
 
 ### Files
 
-* [memdump.txt]() (29c702ff8dc570319e5e8d05fc4cb96c1536b595b9a4e93d6205774f9afd2bff)
+* [memdump.txt](memdump.txt) (29c702ff8dc570319e5e8d05fc4cb96c1536b595b9a4e93d6205774f9afd2bff)
 
 This file is a debug dump of an android smartphone. We are told to retrieve information from the geolocation history. 
 The dump being 61584 lines, it's bit hard to comb by hand, but it's helpfully organized in sections with one section for every running service, and a list of services at the start.
