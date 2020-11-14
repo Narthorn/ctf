@@ -14,8 +14,6 @@ I should have gone to sleep a couple hours earlier, but stayed up to see what th
 
 ![friday/saturday](saturday.png)
 
-It's a good day when you spend 21 hours of it working on something you enjoy.
-
 #### Challenges completed:
 
 * [Intro](../0_intro)

@@ -1,4 +1,4 @@
-![a winrar is you](rankings.png)
+<center>
 
 | Challenge | Points | Category | Solved at | Rating |
 |-----------|--------|----------|-----------|--------| 
@@ -16,3 +16,7 @@
 | [Evil Cipher](400_evil_cipher) | 400 | Hardware | 2020-10-27 06:14:17 | ✦✦✦✦✧ | 
 | [Automatos](300_automatos) | 300 | Stegano | 2020-10-27 08:31:17 | ✦✦✦✦✧ | 
 | [ChatBot](100_chatbot) | 100 | Web | 2020-10-27 09:25:26 | ✧✧✧✧✧ |
+
+![a winrar is you](rankings.png)
+
+</center>
