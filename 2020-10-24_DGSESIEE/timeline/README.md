@@ -1,10 +1,8 @@
 Timeline
 ========
 
-**Started**: 2020-10-24 00:00
-
-**Ended**:   2020-10-27 09:35
-
+**Started**: 2020-10-24 00:00  
+**Ended**:   2020-10-27 09:35  
 **Total time**: ~48 hours
 
 I picked up the habit of keeping track of my time in a big spreadsheet. I'm sure I'll find a real use for it some day, but it comes in pretty handy when I need to figure out what I was doing at any given time.
@@ -18,7 +16,7 @@ I should have gone to sleep a couple hours earlier, but stayed up to see what th
 
 It's a good day when you spend 21 hours of it working on something you enjoy.
 
-## Challenges completed:
+#### Challenges completed:
 
 * [Intro](../0_intro)
 * [Intro Forensics](../0_intro_forensics)
@@ -38,7 +36,7 @@ Woke up at 8am, (technically 9 hours of sleep because of DST). I was feeling a b
 
 ![sunday](sunday.png)
 
-## Challenges completed:
+#### Challenges completed:
 
 * [ASCII UART](../100_ascii_uart)
 * [Définition](../50_définition)
@@ -54,7 +52,7 @@ At this point I had attempted every single challenge besides Evil Cipher, and wa
 
 ![monday](monday.png)
 
-## Challenges completed:
+#### Challenges completed:
 
 * [VX Elliptique](../250_vx_elliptique)
 * [Steganosaurus](../400_steganosaurus)
@@ -71,7 +69,7 @@ At 8:30 am, the only challenge I had left was ChatBot, and I still had absolutel
 
 ![tuesday](tuesday.png)
 
-## Challenges completed:
+#### Challenges completed:
 
 * [Evil Cipher](../400_evil_cipher)
 * [Automatos](../300_automatos)
