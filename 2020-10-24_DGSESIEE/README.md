@@ -1,4 +1,4 @@
-<center>
+<div align="center">
 
 | Challenge | Points | Category | Solved at | Rating |
 |-----------|--------|----------|-----------|--------| 
@@ -19,4 +19,4 @@
 
 ![a winrar is you](rankings.png)
 
-</center>
+</div>
