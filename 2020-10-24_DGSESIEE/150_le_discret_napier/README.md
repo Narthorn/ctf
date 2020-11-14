@@ -1,9 +1,9 @@
 Le discret Napier
 =================
 
-**Category** : Crypto
-**Score** : 150 points
-**Solved** : 138 times
+**Category** : Crypto  
+**Score** : 150 points  
+**Solved** : 138 times  
 
 ---
 

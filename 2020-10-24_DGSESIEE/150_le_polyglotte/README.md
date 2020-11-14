@@ -1,9 +1,9 @@
 Le Polyglotte
 =============
 
-**Category** : Stegano
-**Score** : 150 points
-**Solved** : 115 times
+**Category** : Stegano  
+**Score** : 150 points  
+**Solved** : 115 times  
 
 ---
 
