@@ -137,6 +137,7 @@ We happen to have a file, message.pdf that has a big blob of binary data at the 
 No error, that's promising. What's more, my file browser immediately generated an image thumbnail for the file, so we know we got something.
 
 ![thanks, pcmanfm](pcmanfm.png)
+
 ![message_angecrypted](message_angecrypted)
 
 
@@ -181,15 +182,15 @@ Mauvais mot de passe
 
 It wants a password, and `strings` doesn't show anything, so off to your disassembler of choice to try and see what's going on.
 
-<center>![ida_main1.png](ida_main1.png)</center>
+<center> ![ida_main1.png](ida_main1.png) </center>
 
 Not totally sure why IDA won't give proper names for all the sub_XXXX functions, but those are basically puts, fgets, strcpy, malloc, nothing unexpected for printing out some strings and getting user input.
 
-<center>![dude that meme is DATED now](ida_checkpassword.png)</center>
+<center> ![dude that meme is DATED now](ida_checkpassword.png) </center>
 
 That checkpassword function, though, is a red herring. The actual password check is down there in main:
 
-<center>![ida_main2.png](ida_main2.png)</center>
+<center> ![ida_main2.png](ida_main2.png) </center>
 
 Which translates roughly to this:
 
