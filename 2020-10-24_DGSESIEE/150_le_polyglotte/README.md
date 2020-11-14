@@ -182,27 +182,27 @@ Mauvais mot de passe
 
 It wants a password, and `strings` doesn't show anything, so off to your disassembler of choice to try and see what's going on.
 
-<center>
+<div align="center">
 
 ![ida_main1.png](ida_main1.png)
 
-</center>
+</div>
 
 Not totally sure why IDA won't give proper names for all the sub_XXXX functions, but those are basically puts, fgets, strcpy, malloc, nothing unexpected for printing out some strings and getting user input.
 
-<center>
+<div align="center">
 
 ![dude that meme is DATED now](ida_checkpassword.png)
 
-</center>
+</div>
 
 That checkpassword function, though, is a red herring. The actual password check is down there in main:
 
-<center>
+<div align="center">
 
 ![ida_main2.png](ida_main2.png)
 
-</center>
+</div>
 
 Which translates roughly to this:
 
