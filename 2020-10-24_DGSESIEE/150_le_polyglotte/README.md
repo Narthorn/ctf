@@ -74,17 +74,17 @@ Converting those decimal and hex strings to ascii:
 >>> ''.join(chr(x) for x in [91,48,93,97,97,57,51,56,97,49,54])
 '[0]aa938a16'
 
->>>''.join([chr(int(x,16)) for x in '5b 31 5d 34 64 38 36 32 64 35 61'.split(' ')])
+>>>''.join([chr(int(x,16)) for x in "5b 31 5d 34 64 38 36 32 64 35 61".split(' ')])
 '[1]4d862d5a'
 
->>> print(''.join(chr(int(x,16)) for x in '43 65 20 64 6f 63 75 6d 65 6e 74 20 63 6f 6e 63 65 72 6e 65 20 6c 20 6f 70 65 72 61 74 69 6f 6e 20 73 6f 6c 65 69 6c
+>>> print(''.join(chr(int(x,16)) for x in "43 65 20 64 6f 63 75 6d 65 6e 74 20 63 6f 6e 63 65 72 6e 65 20 6c 20 6f 70 65 72 61 74 69 6f 6e 20 73 6f 6c 65 69 6c
 ...  20 61 74 6f 6d 69 71 75 65 2e 0a 43 65 74 74 65 20 6f 70 65 72 61 74 69 6f 6e 20 65 73 74 20 73 74 72 69 63 74 65 6d 65 6e 74 20 63 6f 6e 66 69 64 65 6e 7
 ... 4 69 65 6c 6c 65 20 65 74 20 6e 65 20 64 6f 69 74 20 65 6e 20 61 75 63 75 6e 20 63 61 73 20 ea 74 72 65 20 64 65 76 6f 69 6c 65 65 2e 20 0a 4c 65 73 20 69 
 ... 6e 66 6f 72 6d 61 74 69 6f 6e 73 20 73 75 72 20 6c 20 6f 70 65 72 61 74 69 6f 6e 20 73 6f 6e 74 20 64 69 73 73 65 6d 69 6e e9 65 73 20 64 61 6e 73 20 63 65
 ...  20 66 69 63 68 69 65 72 2e 0a 43 68 61 71 75 65 20 70 61 72 74 69 65 20 64 65 20 6c 20 69 6e 66 6f 72 6d 61 74 69 6f 6e 20 65 73 74 20 69 64 65 6e 74 69 6
 ... 6 69 65 65 20 70 61 72 20 75 6e 20 6e 6f 6d 62 72 65 20 70 61 72 20 65 78 20 3a 20 0a 5b 30 5d 61 65 37 62 63 61 38 65 20 63 6f 72 72 65 73 70 6f 6e 64 20 
 ... 61 20 6c 61 20 70 72 65 6d 69 e8 72 65 20 70 61 72 74 69 65 20 64 65 20 6c 20 69 6e 66 6f 72 6d 61 74 69 6f 6e 20 71 75 20 69 6c 20 66 61 75 74 20 63 6f 6e
-...  63 61 74 65 6e 65 72 20 61 75 20 72 65 73 74 65 2e'.split(' ')))
+...  63 61 74 65 6e 65 72 20 61 75 20 72 65 73 74 65 2e".split(' ')))
 Ce document concerne l operation soleil atomique.
 Cette operation est strictement confidentielle et ne doit en aucun cas être devoilee. 
 Les informations sur l operation sont disseminées dans ce fichier.
@@ -96,7 +96,7 @@ So we know we're going to be looking for multiple flags to concatenate together,
 
 We also have another file, [secrets.zip](secrets.zip), which is password-protected. A quick john run with rockyou makes short work of it:
 
-```zsh
+```bash
 └─[$] zip2john secrets.zip > secrets.hash
 └─[$] john --wordlist=/usr/share/dict/rockyou.txt --session=secrets secrets.hash 
 Using default input encoding: UTF-8
@@ -110,10 +110,10 @@ Session completed
 ```
 
 Extracting the zip with password 'finenuke', we find two files: [hint.png](hint.png) and [info.txt](info.txt).
-￼
+
 ![hint.png](hint.png)
 
-info.txt has the 3rd flag and some more stuff:
+[info.txt](info.txt) has the 3rd flag and some more stuff:
 
 ```
 Ange Albertini
@@ -126,21 +126,21 @@ Looking up "Ange Albertini" on google, we find these:
 
  * https://www.slideshare.net/ange4771/when-aes-episode-v
  * https://www.youtube.com/watch?v=wbHkVZfCNuE
-￼
+
 So angecryption is a stegano technique that lets you can hide an encrypted file inside another valid file, so that when you reverse the encryption of the whole file, you get another valid file as output.
 We happen to have a file, message.pdf that has a big blob of binary data at the end, so we can try encrypting that with Blowfish, with the given key and IV to see if it reveals anything:
 
-```zsh
+```bash
 └─[$] openssl bf-cbc -iv c4a71ea6c7e0fc82 -K ce5d605e2b35772396bb736114a70e69 -in message.pdf -out message_angecrypted
 ```
 
 No error, that's promising. What's more, my file browser immediately generated an image thumbnail for the file, so we know we got something.
 
-![thanks, pcmanfm][pcmanfm.png]
-![message_angecrypted][message_angecrypted]
+![thanks, pcmanfm](pcmanfm.png)
+![message_angecrypted](message_angecrypted)
 
 
-```zsh￼
+```bash￼
 ￼
 └─[$] xxd message_angecrypted | less
 00000000: ffd8 fffe 0998 0000 9258 aec3 a53e e525  .........X...>.%
@@ -151,7 +151,7 @@ No error, that's promising. What's more, my file browser immediately generated a
 
 [message_angecrypted](message_angecrypted) starts with the bytes ffd8, which is the JPEG header magic bytes, immediately followed by fffe 0998 0000, which indicates a comment block 0x998 bytes long; that's where the "pdf/html" part of the message goes, since it's now garbled after being passed through blowfish. But since it's in a comment block, image viewers can just ignore it.
 
-```zsh
+```bash
 ...
 00000950: 670b 3557 f5f3 3fe2 8266 2723 9ea3 b7e2  g.5W..?..f'#....
 00000960: 2be1 5994 78de d185 6453 f3a1 d7c8 4334  +.Y.x...dS....C4
@@ -172,7 +172,7 @@ An interesting polyglot feature of the JPEG format is that you're free to append
 
 That doesn't look like jpg data, more like a linux executable. We can search for the linux executable format's header 4 magic bytes, `<DEL>ELF (0x7f454c46)`, and strip everything before that to get a runnable executable.
 
-```zsh
+```bash
 └─[$] ./message_executable
 Operation Soleil Atomique
 Entrez le mot de passe : nicenuke
@@ -181,16 +181,16 @@ Mauvais mot de passe
 
 It wants a password, and `strings` doesn't show anything, so off to your disassembler of choice to try and see what's going on.
 
-![ida_main1.png](ida_main1.png)
+<center>![ida_main1.png](ida_main1.png)</center>
 
 Not totally sure why IDA won't give proper names for all the sub_XXXX functions, but those are basically puts, fgets, strcpy, malloc, nothing unexpected for printing out some strings and getting user input.
 
-![dude that meme is DATED now](ida_checkpassword.png)
-￼
+<center>![dude that meme is DATED now](ida_checkpassword.png)</center>
+
 That checkpassword function, though, is a red herring. The actual password check is down there in main:
 
-![ida_main2.png](ida_main2.png)
-￼
+<center>![ida_main2.png](ida_main2.png)</center>
+
 Which translates roughly to this:
 
 ```c
