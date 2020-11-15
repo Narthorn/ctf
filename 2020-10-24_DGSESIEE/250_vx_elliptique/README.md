@@ -59,7 +59,7 @@ sage: lift_y(y2)
 [(24592060322915955458376742075654918743307884467086758475495911637571571854426 : 30324056046686065827439799532301040739788176334375034006985657438931650257514 : 1)]
 ```
 
-So we have x2, but there are 3 different points on the curve with y1 as y-coordinate. Nevertheless, if we have both x1 and x2, we can just apply the Chinese Remainder Theorem to get z, so it's quick enough[¹](#1) to manually try all 3 coordinates for x1:
+So we have x2, but there are 3 different points on the curve with y1 as y-coordinate. Nevertheless, if we have both x1 and x2, we can just apply the Chinese Remainder Theorem to get z, so it's quick enough<a name="1b">[¹](#1)</a> to manually try all 3 coordinates for x1:
 
 ```python
 sage: x2 = 24592060322915955458376742075654918743307884467086758475495911637571571854426
@@ -82,17 +82,19 @@ The first result, 16269120048256876812669289449401377401100446149475015026679747
 
 ![livres_Friang.png](livres_Friang.png)
 
-The flag is easily visible in the barcode of the 2nd book.
+The flag is easily visible in the barcode of the 2nd book: `DGSESIEE{BF-2703-9020-RTQM}`.
 
 ---
+
+### process
 
 I don't know anything about elliptic curves! If I did, this would probably have been trivial.
 
-I also feel like I missed some tricks² that could have made this easier, but it was still fairly simple, just a lot of lost time being frustrated with sage's documentation.
+I also feel like I missed some tricks<a name="2b">[²](#2)</a> that could have made this easier, but it was still fairly simple, just a lot of lost time being frustrated with sage's documentation.
 
 ---
 
-<a name="1">¹</a>: To eliminate the other 2 possibilities, since we know that P(x1,y1) is supposed to be a multiple of P, it must have the same order as P. Fortunately that's computationally easy to check:
+<a name="1">[¹](#1b)</a>: To eliminate the other 2 possibilities, since we know that P(x1,y1) is supposed to be a multiple of P, it must have the same order as P. Fortunately that's computationally easy to check:
 
 ```python
 sage: [p1.order() == P.order() for p1 in lift_y(y1)]
@@ -105,9 +107,8 @@ But it's fast enough to just try them all, so...
 
 ---
 
-<a name="2">²</a>: For some reason, out of the 3 possible coordinates for x1, the working one just happens to be P's x-axis mirror (same x coordinate, but y coordinate is the other square root of y²).
+<a name="2">[²](#2b)</a>: For some reason, out of the 3 possible coordinates for x1, the working one just happens to be P's x-axis mirror (same x coordinate, but y coordinate is the other square root of y²).
 
 That's probably not a coincidence. Maybe you were meant to notice that y1+yP = n ? Maybe there's something similar about (x2,y2) that makes x2 really fast to find.
 
 In any case, once you know what you're doing with sage (god, that documentation is awful), it's pretty fast to get x1 and x2.
-
