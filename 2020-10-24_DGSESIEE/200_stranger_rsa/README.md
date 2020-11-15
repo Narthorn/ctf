@@ -51,7 +51,7 @@ Nothing jumps out in hex, so let's see what we get in decimal:
 Modulus and private exponent look fine, but the first prime is super suspicious. Resize the window a little:
 
 ![primes_resized.png](primes_resized.png)
-￼
+
 And there's the flag.
 
 ---
@@ -60,4 +60,6 @@ And there's the flag.
 
 ---
 
-Neat idea. I got lucky, though, I think. I bet this challenge could be really frustrating if you accidentally miss the correct way to look at the numbers.
+Neat idea. I got lucky, though, I think, because I tried looking at the decimal expression of the primes very quickly.
+
+I bet this challenge could be really frustrating if you accidentally miss the correct way to look at the numbers.
