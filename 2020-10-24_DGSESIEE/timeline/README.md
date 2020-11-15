@@ -5,10 +5,9 @@ Timeline
 **Ended**:   2020-10-27 09:35  
 **Total time**: ~48 hours
 
-Disclaimer: as of writing, I am a full-time NEET creature, so I was free to spend a *lot* of time on this. This is also the first time I do a competitive timed CTF.  
-I'm certain there are people who completed all challenges but spent less time than me overall, which is certainly more valuable<a name="1b">[¹](#1)</a>!
+Disclaimer: as of writing, I am a full-time NEET creature, so I was free to spend a *lot* of time on this. This is also the first time I do a competitive timed CTF. I'm certain there are people who completed all challenges but spent less time than me overall, which is certainly more valuable!<a name="1b">[¹](#1)</a>
 
-The purpose of this page is to keep it real - it's probably a bad idea to spend that much time on a CTF, and I don't want to pretend otherwise. I had fun, though!
+The purpose of this page is to keep it real - it's probably not the best idea to spend that much time on a CTF. I had fun, though!
 
 For some reason, I picked up the habit of keeping track of my time in a big spreadsheet. I'm sure I'll find a real use for it some day, but it comes in pretty handy when I need to figure out what I was doing at any given time.
 
@@ -18,6 +17,8 @@ Saturday 24
 I should have gone to sleep a couple hours earlier, but stayed up to see what the challenge was.
 
 ![friday/saturday](saturday.png)
+
+And then I was hooked.
 
 #### Challenges completed:
 
