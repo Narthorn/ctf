@@ -17,6 +17,10 @@
 | [Automatos](300_automatos) | 300 | Stegano | 2020-10-27 08:31:17 | ✦✦✦✦✧ | 
 | [ChatBot](100_chatbot) | 100 | Web | 2020-10-27 09:25:26 | ✧✧✧✧✧ |
 
+This is my first time doing a write-up, so it's a bit all over the place.
+
+Writing this was MUCH harder than solving the challenges. I hope it's valuable to you.
+
 ![a winrar is you](rankings.png)
 
 </div>
