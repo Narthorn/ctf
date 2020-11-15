@@ -1,9 +1,9 @@
 Evil Cipher
 ===========
 
-Category : Hardware  
-Score : 400 points  
-Solved : 23 times  
+**Category** : Hardware  
+**Score** : 400 points  
+**Solved** : 23 times  
 
 Time spent : ~6 hours 
 
@@ -31,7 +31,7 @@ Very intimidating challenge! But... not that hard?
 
 I kept avoiding this one, because I didn't know anything about VHDL, and I didn't know anything about Galois fields either. In the end I had to work out a bunch of details on the fly, and I got many things very wrong, which sucks because you have to get every single part right at once for the encryption example to work - there's no way to check the correctness of each individual part until the whole is complete.
 
-Still, I never really had the feeling of "being stuck" on this, because there is nothing truly hidden. It is tough, honest work.o
+Still, I never really had the feeling of "being stuck" on this, because there is nothing truly hidden. It is tough, honest work.
 
 I'll add more explanations here later, but for now, here's the [reimplementation](evil_cipher.py) of the cipher that I ended up with, including decryption routines:
 
