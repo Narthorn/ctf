@@ -21,7 +21,9 @@ Keypad Sniffer
 
 <img src="keypad_face.jpg" width="40%"/> <img src="keypad_back.jpg" width="40%" />
 
-This challenge requires learning how [Keypad Scanning](https://arduinogetstarted.com/tutorials/arduino-keypad) works. A given line in [keypad_sniffer.txt](), say 101111101110, can be mapped to the pinout in the image as such:
+This challenge requires learning how [Keypad Scanning](https://arduinogetstarted.com/tutorials/arduino-keypad) works. 
+
+A given line in [keypad_sniffer.txt](), say 101111101110, can be mapped to the pinout in the image as such:
 
 ```
 power‾|
@@ -34,7 +36,7 @@ ground__|
 
 Each column pin is being sequentially pulled low, and the row pins are read to see if any of them is low; If that's the case, then that means the key at the corresponding row/column has been pressed.
 
-We can write a [simple script](sniff.py) to simulate the keypad and output the correct letter each time we detect a keypress:
+We can write a simple [script](sniff.py) to simulate the keypad and output the correct letter each time we detect a keypress:
 
 ```python
 #!/usr/bin/python3
@@ -66,7 +68,7 @@ with open("keypad_sniffer.txt") as file:
 print("DGSESIEE{%s}" % sol)
 ```
 
-When writing this, we don't yet really know which bits are rows or columns, and whether the bits are LSB or MSB first (ie, whether "0001" means first column or fourth column), so we end up having to play around a little and try out multiple flags. The correct one, as printed by the script, is DGSESIEE{AE78F55C666B23011924}.
+When first writing this, we don't yet really know which bits are rows or columns, and whether the bits are LSB or MSB first (ie, whether "0001" means first column or fourth column), so we end up having to play around a little and try out multiple flags. The correct one, as printed by the script, is `DGSESIEE{AE78F55C666B23011924}`.
 
 ---
 
