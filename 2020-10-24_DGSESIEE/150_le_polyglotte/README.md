@@ -74,17 +74,17 @@ Converting those decimal and hex strings to ascii:
 >>> ''.join(chr(x) for x in [91,48,93,97,97,57,51,56,97,49,54])
 '[0]aa938a16'
 
->>>''.join([chr(int(x,16)) for x in "5b 31 5d 34 64 38 36 32 64 35 61".split(' ')])
+>>> ''.join([chr(int(x,16)) for x in '5b 31 5d 34 64 38 36 32 64 35 61'.split(' ')])
 '[1]4d862d5a'
 
->>> print(''.join(chr(int(x,16)) for x in "43 65 20 64 6f 63 75 6d 65 6e 74 20 63 6f 6e 63 65 72 6e 65 20 6c 20 6f 70 65 72 61 74 69 6f 6e 20 73 6f 6c 65 69 6c
+>>> print(''.join(chr(int(x,16)) for x in '43 65 20 64 6f 63 75 6d 65 6e 74 20 63 6f 6e 63 65 72 6e 65 20 6c 20 6f 70 65 72 61 74 69 6f 6e 20 73 6f 6c 65 69 6c
 ...  20 61 74 6f 6d 69 71 75 65 2e 0a 43 65 74 74 65 20 6f 70 65 72 61 74 69 6f 6e 20 65 73 74 20 73 74 72 69 63 74 65 6d 65 6e 74 20 63 6f 6e 66 69 64 65 6e 7
 ... 4 69 65 6c 6c 65 20 65 74 20 6e 65 20 64 6f 69 74 20 65 6e 20 61 75 63 75 6e 20 63 61 73 20 ea 74 72 65 20 64 65 76 6f 69 6c 65 65 2e 20 0a 4c 65 73 20 69 
 ... 6e 66 6f 72 6d 61 74 69 6f 6e 73 20 73 75 72 20 6c 20 6f 70 65 72 61 74 69 6f 6e 20 73 6f 6e 74 20 64 69 73 73 65 6d 69 6e e9 65 73 20 64 61 6e 73 20 63 65
 ...  20 66 69 63 68 69 65 72 2e 0a 43 68 61 71 75 65 20 70 61 72 74 69 65 20 64 65 20 6c 20 69 6e 66 6f 72 6d 61 74 69 6f 6e 20 65 73 74 20 69 64 65 6e 74 69 6
 ... 6 69 65 65 20 70 61 72 20 75 6e 20 6e 6f 6d 62 72 65 20 70 61 72 20 65 78 20 3a 20 0a 5b 30 5d 61 65 37 62 63 61 38 65 20 63 6f 72 72 65 73 70 6f 6e 64 20 
 ... 61 20 6c 61 20 70 72 65 6d 69 e8 72 65 20 70 61 72 74 69 65 20 64 65 20 6c 20 69 6e 66 6f 72 6d 61 74 69 6f 6e 20 71 75 20 69 6c 20 66 61 75 74 20 63 6f 6e
-...  63 61 74 65 6e 65 72 20 61 75 20 72 65 73 74 65 2e".split(' ')))
+...  63 61 74 65 6e 65 72 20 61 75 20 72 65 73 74 65 2e'.split(' ')))
 Ce document concerne l operation soleil atomique.
 Cette operation est strictement confidentielle et ne doit en aucun cas être devoilee. 
 Les informations sur l operation sont disseminées dans ce fichier.
@@ -141,8 +141,8 @@ No error, that's promising. What's more, my file browser immediately generated a
 ![message_angecrypted](message_angecrypted)
 
 
-```bash￼
-￼
+```bash
+
 └─[$] xxd message_angecrypted | less
 00000000: ffd8 fffe 0998 0000 9258 aec3 a53e e525  .........X...>.%
 00000010: d880 2e73 69bd 6385 f20f d406 1738 373f  ...si.c......87?
@@ -253,10 +253,12 @@ We now have four flags:
 [3]4037402d4  // from info.txt inside the zip
 ```
 
-That we concatenate into the final flag, DGSESIEE{aa938a164d862d5ae3c4d244037402d4}.
+That we concatenate into the final flag, `DGSESIEE{aa938a164d862d5ae3c4d244037402d4}`.
 
 ---
 
 Very nice challenge. I didn't know about Angecryption, that's such a cool trick. 
+
+The executable reversing is much harder to explain than it was to solve, I still think I missed some easier way to look at it.
 
 What a long write-up for a 150 points challenge!
