@@ -20,14 +20,14 @@ I should have gone to sleep a couple hours earlier, but stayed up to see what th
 
 #### Challenges completed:
 
-* [Intro](../0_intro)
-* [Intro Forensics](../0_intro_forensics)
-* [Intro Web](../0_intro_web)
+* [Intro](../000_intro)
+* [Intro Forensics](../000_intro_forensics)
+* [Intro Web](../000_intro_web)
 * [Alone Muks](../100_alone_muks)
 
 \*sleep\*
 
-* [Sous l'océan](../50_sous_l'océan)
+* [Sous l'océan](../050_sous_l'océan)
 * [Keypad Sniffer](../150_keypad_sniffer)
 * [Le Polyglotte](../150_le_polyglotte)
 
@@ -41,8 +41,8 @@ Woke up at 8am, (technically 9 hours of sleep because of DST). I was feeling a b
 #### Challenges completed:
 
 * [ASCII UART](../100_ascii_uart)
-* [Définition](../50_définition)
-* [Intro Crypto](../0_intro_crypto)
+* [Définition](../050_définition)
+* [Intro Crypto](../000_intro_crypto)
 * [L'énigme de la crypte](../200_l'énigme_de_la_crypte)
 
 Monday 26

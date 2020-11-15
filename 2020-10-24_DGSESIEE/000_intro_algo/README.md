@@ -165,7 +165,7 @@ This page has some flavor-text popups<a name="4b">[⁴](#4)</a>, one of which in
 
 #### process
 
-<a name="2">[²](#2b)</a>: I actually stopped there and didn't do the rest of this intro until after I was done with the whole CTF. All other paths lead to the same place, and only the [crypto intro](../0_intro_crypto) is referenced in a later challenge, so it's fine to skip all other intros.
+<a name="2">[²](#2b)</a>: I actually stopped there and didn't do the rest of this intro until after I was done with the whole CTF. All other paths lead to the same place, and only the [crypto intro](../000_intro_crypto) is referenced in a later challenge, so it's fine to skip all other intros.
 
 <a name="3">[³](#3b)</a>: For some reason it was really hard for me to write the "naive" recursive thing. Like, a few hours? It was after completing everything, so, no time pressure, but still.   
 It also threw me for a loop that you have to upload the result files with a .txt extension - I kept double-checking my files thinking I had something wrong in the format or newline issues or whatnot.

@@ -86,7 +86,7 @@ IVQDQT NHABMPSVBYYUCJIYMJBRDWXAXP  THYVCROD
 
  * First line tells us we need rotors 1, 3 and 5;
  * Second line gives us the positions of the alphabet ring for each rotor, REJ;
- * Third line, the plugboard connections, is "XX XX", and we are told this might have something to do with the solution to the [Crypto intro](../0_intro_crypto) challenge, from which we got "b a:e z";
+ * Third line, the plugboard connections, is "XX XX", and we are told this might have something to do with the solution to the [Crypto intro](../000_intro_crypto) challenge, from which we got "b a:e z";
  * Fourth line gives the initial rotor positions, MER
  * Fifth line could refer either to the reflector plate (B), or to the [Indicator](https://en.wikipedia.org/wiki/Enigma_machine#Indicator) initialization vector.
 
