@@ -4,7 +4,7 @@
 |-----------|--------|----------|-----------|--------| 
 | [Intro Forensics](000_intro_forensics) | 0 | Forensic | 2020-10-24 02:55:00 | ✦✦✦✧✧ |
 | [Intro Web](000_intro_web) | 0 | Web | 2020-10-24 05:35:00 | ✦✦✦✧✧ |
-| Alone Muks | 100 | Pwn | 2020-10-24 05:53:15 | ✦✦✧✧✧ | 
+| [Alone Muks](100_alone_muks) | 100 | Pwn | 2020-10-24 05:53:15 | ✦✦✧✧✧ | 
 | [Sous l'océan](050_sous_l'océan) | 50 | Forensic | 2020-10-24 12:02:08 | ✦✦✧✧✧ |
 | [Keypad Sniffer](150_keypad_sniffer) | 150 | Hardware | 2020-10-24 17:32:05 | ✦✦✦✧✧ | 
 | [Le discret Napier](150_le_discret_napier) | 150 | Crypto | 2020-10-24 18:05:49 | ✦✦✧✧✧ |
