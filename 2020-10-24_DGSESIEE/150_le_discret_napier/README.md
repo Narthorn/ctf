@@ -24,6 +24,12 @@ Wall time: 1min 43s
 697873717765
 ```
 
+Flag: `DGSESIEE{697873717765}`
+
+---
+
+#### Further thinking
+
 I still don't know if sage is exploiting any special feature of the modulus here. n = 207419578609033051199924683129295125643 is a big prime, but only ~127 bits, so maybe that's weak enough to be attacked directly?
 
 By Fermat's little theorem, for prime n, `z^(n-1) = 1 [n]`, so instead of working modulo n, we can work modulo n-1. The [Pohlig-Hellman algorithm](https://en.wikipedia.org/wiki/Pohlig%E2%80%93Hellman_algorithm) works best when n-1 factorizes into lots of small primes, which is not really the case here (n = 2 * 43 * 47 * 373 * 2707 * 2608763 * 19481470025232063548957)
@@ -39,6 +45,8 @@ which means that they should be able to solve a discrete log with 127bit prime m
 Either the complexity estimate is too imprecise, or sage is way slow. Most likely both. I trust that sage, while presenting a python interface, still calls into native code to do the heavy lifting, but it would be interesting to directly write a naive implementation of NFSDL in a low-level language and see how fast you could make it go.
 
 ---
+
+#### process
 
 This challenge seemed too short to be hard, so I did it fairly early. My math is very rusty, so it took me a little longer than strictly needed to recognize this as "the" discrete log problem (title should have been a dead giveaway, if anything).
 
