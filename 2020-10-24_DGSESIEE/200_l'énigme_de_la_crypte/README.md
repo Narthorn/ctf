@@ -93,7 +93,7 @@ IVQDQT NHABMPSVBYYUCJIYMJBRDWXAXP  THYVCROD
 Using those parameters on an [online Enigma simulator](https://cryptii.com/pipes/enigma-machine), we get the following decryption:
 
 ![cryptii.png](cryptii.png)
-￼
+
 The first word is BFG repeated twice, which confirms we are on the right track, as this is how an indicator string would be used in early versions of the Enigma encryption scheme.
 
 To decode the rest of the message, we then set the rotor positions to BFG, and obtain the flag string: `DGSESIEE{LESSANGLOTSLONGSDESVIOLONS}`.
