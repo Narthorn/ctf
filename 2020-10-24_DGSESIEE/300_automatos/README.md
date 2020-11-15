@@ -56,7 +56,7 @@ for y in range(2,height-2):
 
 Unfortunately, they don't seem to spell anything useful.
 
-There's another unusual thing, however: aside from the first column and last line, there is exactly one non-zero element in each row/column[¹](#1) (this is perhaps easier to see in the previous picture).
+There's another unusual thing, however: aside from the first column and last line, there is exactly one non-zero element in each row/column<a name="1b">[¹](#1)</a> (this is perhaps easier to see in the previous picture).
 
 This is where the name of the challenge gives us the clue we need: Automatos, as in, [finite automata](https://en.wikipedia.org/wiki/Deterministic_finite_automaton), as in, [state transition table](https://en.wikipedia.org/wiki/State-transition_table).
 
@@ -86,7 +86,7 @@ Indeed, if we consider each letter as being an entry in a 2d transition table, w
 19 -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
 ```
 
-This unexpectedly[²](#2) gives us a nice chain of transitions: 
+This unexpectedly<a name="2b">[²](#2)</a> gives us a nice chain of transitions: 
 
  * A is a transition from state 0 to state 8,
  * R is a transition from state 8 to state 10,
@@ -97,13 +97,14 @@ This unexpectedly[²](#2) gives us a nice chain of transitions: 
 
 And so on through all letters, giving us the flag sentence: `ARBREDEPOIDSMINIMUM`.
 
-
 ---
 
-<a name="1">¹</a>: I noticed this very quickly but still got stuck for a loooong time. Blame lack of sleep.
+<a name="1">[¹](#1b)</a>: I noticed this very quickly but still got stuck for a loooong time. Blame lack of sleep.
 
-<a name="2">²</a>: It's very much *not* a given that a table with exactly one entry per row/column makes a chain of transitions that go through every possible state; you could imagine for example, a table with a transition in row 4 / column 4, which would make a loop from state 4 to itself and be unreachable from any other state. So even in cases where we didn't quite decode the letters correctly (I was off by one char the whole time), the fact that we are going through all states is super telling that it's the correct thing to do.
+<a name="2">[²](#2b)</a>: It's very much *not* a given that a table with exactly one entry per row/column makes a chain of transitions that go through every possible state; you could imagine for example, a table with a transition in row 4 / column 4, which would make a loop from state 4 to itself and be unreachable from any other state. So even in cases where we didn't quite decode the letters correctly (I was off by one char the whole time), the fact that we are going through all states is super telling that it's the correct thing to do.
 
 --- 
+
+#### process
 
 Very cool challenge. I lost a bunch of time having to caesar everything I tried, due to not being sure whether I had the correct offset for the integer to alphabeT conversion ; It's happened two or three times now on different challenges that when I'm in a situation where I have to generate a lot of possible candidate solutions, I tend to get lost in doing that, and I have a hard time stepping back and noticing the clues that point to the one "correct" solution.
