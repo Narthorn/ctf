@@ -2,7 +2,7 @@
 
 | Challenge | Points | Category | Solved at | Rating |
 |-----------|--------|----------|-----------|--------| 
-| [Alone Muks](100_alone_muks) | 100 | Pwn | 2020-10-24 05:53:15 | ✦✦✧✧✧ | 
+| Alone Muks | 100 | Pwn | 2020-10-24 05:53:15 | ✦✦✧✧✧ | 
 | [Sous l'océan](50_sous_l'océan) | 50 | Forensic | 2020-10-24 12:02:08 | ✦✧✧✧✧ |
 | [Keypad Sniffer](150_keypad_sniffer) | 150 | Hardware | 2020-10-24 17:32:05 | ✦✦✦✧✧ | 
 | [Le discret Napier](150_le_discret_napier) | 150 | Crypto | 2020-10-24 18:05:49 | ✦✦✧✧✧ |
@@ -19,7 +19,7 @@
 
 This is my first time doing a write-up, so it's a bit all over the place.
 
-Writing this was MUCH harder than solving the challenges. I hope it's valuable to you.
+Writing this was MUCH harder than solving the challenges. I hope it can be valuable to you.
 
 ![a winrar is you](rankings.png)
 
