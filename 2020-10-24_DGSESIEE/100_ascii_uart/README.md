@@ -25,10 +25,10 @@ As a first step, we can load the file in Audacity (Import > Raw Data > Signed 8b
 
 Zooming in on that first part, we can try to figure out the length of 1 bit, and isolate individual symbols. We find a start bit of 0, a stop bit of 1, and 9 bits inbetween, so we could assume the 9th bit is a parity bit.
 
-![audacity2.png](audacity2.png)￼
+![audacity2.png](audacity2.png)
 *transcribing the first part by hand (2nd line is just a cut-and-pasted pseudo-clock signal to help me count bits)*
 
-The parity bit theory mostly checks out for those first few chars - one of them has a parity error. When read LSB first, the 8 data bits turn out to be ASCII (it's harder to spot a 0b01... pattern when you have to read right-to-left). Manually decoding, we get:
+The parity bit theory mostly checks out for those first few chars - one of them has a parity error. When read LSB first, the 8 data bits turn out to be ASCII. Manually decoding, we get:
 
 ```
 0 00100010 0 1 -> 0b01000100 -> 'D'
@@ -124,6 +124,6 @@ It works out ok though, and we get the correct flag:
 
 ---
 
-Before doing this. I didn't know much about the UART protocol besides that it's a thing that exists. I made the same mistake as in Keypad Sniffer, where I saw a bunch of bits and figured I could work it out without having to look up anything.
+Before doing this. I didn't know much about the UART protocol besides that it's a thing that exists. I made the same mistake as in [Keypad Sniffer](../150_keypad_sniffer), where I saw a bunch of bits and figured I could work it out without having to look up anything.
 
 There's probably some online UART decoder I could have used to be done with this in a second, but it was fun to work through.
