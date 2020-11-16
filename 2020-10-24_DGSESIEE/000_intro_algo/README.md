@@ -40,7 +40,7 @@ Which sends you to a new url: https://challengecybersec.fr/22caeee05cb8b2a49133b
 
 ![storage.png](1-efficient_storage/storage.png)
 
-Here, we get a sequence of files containing increasingly big sets of integers; the challenge, described in [IMPORTANT.pdf](1-efficient_storage/IMPORTANT.pdf) is to find a subset of those numbers whose sum is equal, but not higher, than a given target. This can be done in many efficient ways, but here the files are small enough that a naive<a name="3">[³](#3b)</a> recursion in a slow language is [good enough](1-efficient_storage/storage.py):
+Here, we get a sequence of files containing increasingly big sets of integers; the challenge, described in [IMPORTANT.pdf](1-efficient_storage/IMPORTANT.pdf) is to find a subset of those numbers whose sum is equal, but not higher, than a given target. This can be done in many efficient ways, but here the files are small enough that a naive<a name="3b">[³](#3)</a> recursion in a slow language is [good enough](1-efficient_storage/storage.py):
 
 ```python
 #!/usr/bin/python
@@ -105,9 +105,9 @@ Next stop: https://www.challengecybersec.fr/1410e53b7550c466c76fc7268a8160ae
 
 ![login.png](3-obfuscated_js/login.png)
 
-This one is cool. A simple login page is "protected" by [heavily obfuscated](3-obfuscated_js/obfuscated.js) javascript. The username is run through the obfuscated function, and if that returns true, the user is redirected to http://www.challengecybersec.fr/1410e53b7550c466c76fc7268a8160ae/[theusername], so you can't just skip to the correct page, you have to figure out the username from the client-side checking code (which might be a one-way hash that can't easily be reversed!).
+This one is cool. A simple login page is "protected" by [heavily obfuscated](3-obfuscated_js/obfuscated.js) javascript. The username is run through the obfuscated function, and if that returns true, the user is redirected to `current_url + "/' + username`, so you can't just skip to the correct page. You have to figure out the username from the client-side checking code (which might be a one-way hash that can't easily be reversed!).
 
-Not much to say about the process of unobfuscating - since the code was small enough, I did it by hand, replacing variable names with readable english and simplifying the code as I went. The [unobfuscated](3-obfuscated_js/unobfuscated.js) code is way simpler:
+Not much to say about the process of unobfuscating - since the code was small enough, I did it by hand, replacing variable names with readable english and simplifying the code as I went. The [unobfuscated](3-obfuscated_js/unobfuscated.js) code is simpler:
 
 ```js
 var hash = '\x37\x3c\x30\x6c\x3c\x6e\x69\x30\x33\x3c\x6c\x3c\x6c\x3c\x33\x3e\x35\x3c\x62\x60\x3e\x64\x6b\x3e\x6a\x3b\x33\x6e\x30\x3e\x3e\x6f\x39\x6e\x30\x60\x6e\x6b\x33\x39';
@@ -145,7 +145,7 @@ for x in {0..9} {a..f}; do for y in {0..9} {a..f}; do user="${y}f39${x}9527e73ad
 2f3949527e73ad93b73b070bb12cde1292bbcde5: 404
 3f3949527e73ad93b73b070bb12cde1292bbcde5: 404
 4f3949527e73ad93b73b070bb12cde1292bbcde5: 404
-5f3949527e73ad93b73b070bb12cde1292bbcde5: 200 < working
+5f3949527e73ad93b73b070bb12cde1292bbcde5: 200    <<<<<
 6f3949527e73ad93b73b070bb12cde1292bbcde5: 404
 7f3949527e73ad93b73b070bb12cde1292bbcde5: 404
 8f3949527e73ad93b73b070bb12cde1292bbcde5: 404
@@ -167,7 +167,6 @@ This page has some flavor-text popups<a name="4b">[⁴](#4)</a>, one of which in
 
 <a name="2">[²](#2b)</a>: I actually stopped there and didn't do the rest of this intro until after I was done with the whole CTF. All other paths lead to the same place, and only the [crypto intro](../000_intro_crypto) is referenced in a later challenge, so it's fine to skip all other intros.
 
-<a name="3">[³](#3b)</a>: For some reason it was really hard for me to write the "naive" recursive thing. Like, a few hours? It was after completing everything, so, no time pressure, but still.   
-It also threw me for a loop that you have to upload the result files with a .txt extension - I kept double-checking my files thinking I had something wrong in the format or newline issues or whatnot.
+<a name="3">[³](#3b)</a>: For some reason it was really hard for me to write the "naive" recursive thing. Like, a few hours? It was after completing everything, so, no time pressure, but still. It also threw me for a loop that you have to upload the result files with a .txt extension - I kept double-checking my files thinking I had something wrong in the format or newline issues or whatnot.
 
 <a name="4">[⁴](#4b)</a>: Is there a flag here to be written in the chat page for confirmation? I don't think so, but I don't know.
