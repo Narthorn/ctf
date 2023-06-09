@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/usr/share/peepdf/peepdf.py", line 541, in <module>
+    console.cmdloop()
+  File "/usr/lib/python2.7/cmd.py", line 130, in cmdloop
+    line = raw_input(self.prompt)
+KeyboardInterrupt
