@@ -1,0 +1,50 @@
+diff --git a/src/app/layouts/bubbles.ts b/src/app/layouts/bubbles.ts
+index 416e41c..66bd4ae 100644
+--- a/src/app/layouts/bubbles.ts
++++ b/src/app/layouts/bubbles.ts
+@@ -3,7 +3,7 @@ export default `
+ <div class="flex flex-col space-y-px px-8 py-4">
+   <div class="flex justify-start text-xs font-mono">
+     {{ message.time.toLocaleString(undefined, { timeStyle: "short", hour12: false }) }} |
+-    {{ message.author.split("-")[0] }}
++    XXX
+   </div>
+   <div class="flex justify-start text-xs font-mono">
+     <div class="max-w-xs p-2 text-black bg-gray-300 rounded-lg">
+@@ -28,7 +28,7 @@ export default `
+ 
+ <div class="flex flex-col space-y-2">
+ {%for message in messages%}
+-  {% if message.author == userId %}
++  {% if message.author %}
+     {{ sent(message) }}
+   {% else %}
+     {{ received(message) }}
+diff --git a/src/app/layouts/irc.ts b/src/app/layouts/irc.ts
+index 192497e..38aabd5 100644
+--- a/src/app/layouts/irc.ts
++++ b/src/app/layouts/irc.ts
+@@ -4,7 +4,7 @@ export default `
+   <div
+     class="grid grid-cols-subgrid col-span-full divide-x divide-blue-500 [&:nth-child(2n)::bg-black/5">
+     <div class="px-2 py-1">{{ message.time.toLocaleString(undefined, { timeStyle: "short", hour12: false }) }}</div>
+-    <div class="px-2 py-1">{{ message.author.split("-")[0] }}</div>
++    <div class="px-2 py-1">{{ "You" if message.author else "XXX" }}</div>
+     <div class="px-2 py-1 truncate">
+       {{message.content}}
+     </div>
+diff --git a/src/app/server/worker.ts b/src/app/server/worker.ts
+index df227f6..6591a4b 100644
+--- a/src/app/server/worker.ts
++++ b/src/app/server/worker.ts
+@@ -33,8 +33,9 @@ pipe.on("addMessage", (userId, content) => {
+ });
+ 
+ pipe.on("render", (userId) => {
++  const msgs = messages.map((msg) => ({...msg, author: msg.author === userId}))
+   return nunjucks.renderString(userTemplates.get(userId) ?? defaultTemplate, {
+-    messages,
++    messages: msgs,
+     userId,
+     split: (s: string, size = 32) => {
+       const result = [];

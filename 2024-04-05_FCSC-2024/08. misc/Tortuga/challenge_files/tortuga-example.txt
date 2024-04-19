@@ -1,0 +1,10 @@
+[
+	# Draw triangle pointing down
+	(2, 0), (-1, 2), (-1, -2),
+	# Skip
+	(0, 0), (3, 0),
+	# Draw triangle pointing up
+	(-1, 2), (2, 0), (-1, -2),
+	# Skip
+	(0, 0), (1, 0),
+] * 6

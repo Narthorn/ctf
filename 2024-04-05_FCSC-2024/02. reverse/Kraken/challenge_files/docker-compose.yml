@@ -1,0 +1,9 @@
+services:
+  kraken:
+    build:
+      context: .
+      dockerfile: Dockerfile.kraken
+    image: kraken
+    hostname: kraken
+    volumes:
+      - .:/app/

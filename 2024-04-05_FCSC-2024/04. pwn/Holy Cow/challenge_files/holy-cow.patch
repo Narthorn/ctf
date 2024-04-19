@@ -1,0 +1,129 @@
+diff --git a/src/builtins/builtins-collections.cc b/src/builtins/builtins-collections.cc
+index d201091a617..2eb321fe704 100644
+--- a/src/builtins/builtins-collections.cc
++++ b/src/builtins/builtins-collections.cc
+@@ -27,5 +27,14 @@ BUILTIN(SetPrototypeClear) {
+   return ReadOnlyRoots(isolate).undefined_value();
+ }
+ 
++BUILTIN(SetPrototypeHole) {
++  HandleScope scope(isolate);
++  const char* const kMethodName = "Set.prototype.hole";
++  CHECK_RECEIVER(JSSet, set, kMethodName);
++  JSSet::Clear(isolate, set);
++  //return ReadOnlyRoots(isolate).undefined_value();
++  return ReadOnlyRoots(isolate).the_hole_value();
++}
++
+ }  // namespace internal
+ }  // namespace v8
+diff --git a/src/builtins/builtins-definitions.h b/src/builtins/builtins-definitions.h
+index 92b187ff31c..44e55807597 100644
+--- a/src/builtins/builtins-definitions.h
++++ b/src/builtins/builtins-definitions.h
+@@ -854,6 +854,7 @@ namespace internal {
+   TFJ(SetPrototypeAdd, kJSArgcReceiverSlots + 1, kReceiver, kKey)              \
+   TFJ(SetPrototypeDelete, kJSArgcReceiverSlots + 1, kReceiver, kKey)           \
+   CPP(SetPrototypeClear)                                                       \
++  CPP(SetPrototypeHole)                                                        \
+   /* ES #sec-set.prototype.entries */                                          \
+   TFJ(SetPrototypeEntries, kJSArgcReceiverSlots, kReceiver)                    \
+   /* ES #sec-get-set.prototype.size */                                         \
+diff --git a/src/compiler/typer.cc b/src/compiler/typer.cc
+index 7227dffd051..4c6975b64c5 100644
+--- a/src/compiler/typer.cc
++++ b/src/compiler/typer.cc
+@@ -1797,6 +1797,8 @@ Type Typer::Visitor::JSCallTyper(Type fun, Typer* t) {
+     case Builtin::kSetPrototypeValues:
+       return Type::OtherObject();
+     case Builtin::kSetPrototypeClear:
++    case Builtin::kSetPrototypeHole:
++      return Type::OtherObject();    
+     case Builtin::kSetPrototypeForEach:
+       return Type::Undefined();
+     case Builtin::kSetPrototypeDelete:
+diff --git a/src/flags/flag-definitions.h b/src/flags/flag-definitions.h
+index 85f7379a36e..7420a954923 100644
+--- a/src/flags/flag-definitions.h
++++ b/src/flags/flag-definitions.h
+@@ -962,9 +962,9 @@ DEFINE_INT(wasm_num_compilation_tasks, 128,
+ DEFINE_VALUE_IMPLICATION(single_threaded, wasm_num_compilation_tasks, 0)
+ DEFINE_DEBUG_BOOL(trace_wasm_native_heap, false,
+                   "trace wasm native heap events")
+-DEFINE_BOOL(wasm_write_protect_code_memory, true,
++DEFINE_BOOL(wasm_write_protect_code_memory, false,
+             "write protect code memory on the wasm native heap with mprotect")
+-DEFINE_BOOL(wasm_memory_protection_keys, true,
++DEFINE_BOOL(wasm_memory_protection_keys, false,
+             "protect wasm code memory with PKU if available (takes precedence "
+             "over --wasm-write-protect-code-memory)")
+ DEFINE_DEBUG_BOOL(trace_wasm_serialization, false,
+@@ -1260,10 +1260,10 @@ DEFINE_BOOL(scavenge_separate_stack_scanning, false,
+             "use a separate phase for stack scanning in scavenge")
+ DEFINE_BOOL(trace_parallel_scavenge, false, "trace parallel scavenge")
+ #if MUST_WRITE_PROTECT_CODE_MEMORY
+-DEFINE_BOOL_READONLY(write_protect_code_memory, true,
++DEFINE_BOOL_READONLY(write_protect_code_memory, false,
+                      "write protect code memory")
+ #else
+-DEFINE_BOOL(write_protect_code_memory, true, "write protect code memory")
++DEFINE_BOOL(write_protect_code_memory, false, "write protect code memory")
+ #endif
+ #if defined(V8_ATOMIC_OBJECT_FIELD_WRITES)
+ #define V8_CONCURRENT_MARKING_BOOL true
+diff --git a/src/init/bootstrapper.cc b/src/init/bootstrapper.cc
+index b3d7aa678c7..33d0cacad9a 100644
+--- a/src/init/bootstrapper.cc
++++ b/src/init/bootstrapper.cc
+@@ -3582,6 +3582,8 @@ void Genesis::InitializeGlobal(Handle<JSGlobalObject> global_object,
+ 
+     SimpleInstallFunction(isolate_, prototype, "clear",
+                           Builtin::kSetPrototypeClear, 0, true);
++    SimpleInstallFunction(isolate_, prototype, "hole",
++                          Builtin::kSetPrototypeHole, 0, true);
+     SimpleInstallFunction(isolate_, prototype, "entries",
+                           Builtin::kSetPrototypeEntries, 0, true);
+     SimpleInstallFunction(isolate_, prototype, "forEach",
+diff --git a/src/d8/d8.cc b/src/d8/d8.cc
+index 6f38f7280e5..6315d722bab 100644
+--- a/src/d8/d8.cc
++++ b/src/d8/d8.cc
+@@ -2943,14 +2943,14 @@ Local<ObjectTemplate> Shell::CreateGlobalTemplate(Isolate* isolate) {
+                        FunctionTemplate::New(isolate, PrintErr));
+   global_template->Set(isolate, "write",
+                        FunctionTemplate::New(isolate, WriteStdout));
+-  global_template->Set(isolate, "read",
+-                       FunctionTemplate::New(isolate, ReadFile));
+-  global_template->Set(isolate, "readbuffer",
+-                       FunctionTemplate::New(isolate, ReadBuffer));
++  //global_template->Set(isolate, "read",
++  //                     FunctionTemplate::New(isolate, ReadFile));
++  //global_template->Set(isolate, "readbuffer",
++  //                     FunctionTemplate::New(isolate, ReadBuffer));
+   global_template->Set(isolate, "readline",
+                        FunctionTemplate::New(isolate, ReadLine));
+-  global_template->Set(isolate, "load",
+-                       FunctionTemplate::New(isolate, ExecuteFile));
++  //global_template->Set(isolate, "load",
++  //                     FunctionTemplate::New(isolate, ExecuteFile));
+   global_template->Set(isolate, "setTimeout",
+                        FunctionTemplate::New(isolate, SetTimeout));
+   // Some Emscripten-generated code tries to call 'quit', which in turn would
+@@ -3252,14 +3252,14 @@ void Shell::Initialize(Isolate* isolate, D8Console* console,
+             v8::Isolate::kMessageInfo | v8::Isolate::kMessageDebug |
+             v8::Isolate::kMessageLog);
+   }
+-
++/*
+   isolate->SetHostImportModuleDynamicallyCallback(
+       Shell::HostImportModuleDynamically);
+   isolate->SetHostInitializeImportMetaObjectCallback(
+       Shell::HostInitializeImportMetaObject);
+   isolate->SetHostCreateShadowRealmContextCallback(
+       Shell::HostCreateShadowRealmContext);
+-
++*/
+ #ifdef V8_FUZZILLI
+   // Let the parent process (Fuzzilli) know we are ready.
+   if (options.fuzzilli_enable_builtins_coverage) {
+
