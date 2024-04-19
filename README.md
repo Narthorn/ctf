@@ -1,3 +1,3 @@
-- [2023-05-10 to 2022-06-04, **DGSE / HackademINT 404CTF 2023** (fr, 1st place / 2326 solvers)](2023-05-10_404CTF-2023) 
+- [2023-05-12 to 2023-06-04, **DGSE / HackademINT 404CTF 2023** (fr, 1st place / 2326 solvers)](2023-05-12_404CTF-2023) 
 - 2022-05-16 to 2022-06-10, **DGSE / HackademINT 404CTF 2022** (fr, 1st place / 1765 solvers)
 - [2020-10-24 to 2020-11-11, **DGSE / ESIEE 2020 Brigitte Friang** (fr, 1st place / 785 teams)](2020-10-24_DGSESIEE)

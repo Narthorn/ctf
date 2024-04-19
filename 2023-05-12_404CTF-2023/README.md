@@ -1,7 +1,7 @@
 404CTF, 2023 edition
 ===
 
-Hello! I'm currently adding write-ups for all the challenges. Not everything is done yet.
+Hello! I started doing write-ups for all the challenges but then got distracted. I may get back to them in the future, but it's unlikely... this repository still holds the original challenge files for every challenge, if you want to browse them.
 
 Here are some of my favorite challenges from this CTF:
 
