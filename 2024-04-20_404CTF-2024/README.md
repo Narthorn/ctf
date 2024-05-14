@@ -1,12 +1,15 @@
 404CTF, 2024 edition
 ===
 
-Upcoming writeups:
+### Write-ups:
 
 - [La Barre Fixe](06.%20steg/La%20Barre%20Fixe)
+
+Upcoming:
+
 - [Le Tableau Noir](07.%20reverse/Le%20Tableau%20Noir/challenge_files)
 - [L'entrée du Dojo](07.%20reverse/L'entrée%20du%20Dojo/challenge_files)
-- at least those three but maybe more, ping me on discord (@narthorn) if you want me to do one in particular.
+- at least those two but certainly more, ping me on discord (@narthorn) if you want me to do a writeup in particular.
 
 ### Favorite challenges:
 
