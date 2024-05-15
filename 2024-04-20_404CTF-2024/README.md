@@ -4,12 +4,14 @@
 ### Write-ups:
 
 - [La Barre Fixe](06.%20steg/La%20Barre%20Fixe)
+- [Le Tableau Noir](07.%20reverse/Le%20Tableau%20Noir)
 
 Upcoming:
 
-- [Le Tableau Noir](07.%20reverse/Le%20Tableau%20Noir/challenge_files)
 - [L'entrée du Dojo](07.%20reverse/L'entrée%20du%20Dojo/challenge_files)
-- at least those two but certainly more, ping me on discord (@narthorn) if you want me to do a writeup in particular.
+- [Comment est votre modulation ? 1/2](05.%20hardware/Comment%20est%20votre%20modulation%20%3F%20[1_2]/challenge_files)
+- [Comment est votre modulation ? 2/2](05.%20hardware/Comment%20est%20votre%20modulation%20%3F%20[2_2]/challenge_files)
+- at least those but certainly more, ping me on discord (@narthorn) if you want me to do a writeup in particular.
 
 ### Favorite challenges:
 
