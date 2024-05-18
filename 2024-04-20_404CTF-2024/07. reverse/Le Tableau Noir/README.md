@@ -16,25 +16,37 @@ Clicking the "Check" button causes the entire blackboard to go bright red:
 
 The [challenge text](challenge_files/README.md) goes out of its way to tell us "Red = Bad, Green = Good", which is a HUGE, MASSIVE hint that if followed properly, can help you solve the challenge in less than half an hour[^1].
 
-That is because it gives us a needle to search for in the massive amount of wasm bytecode: we know that something is going to turn the blackboard from its base color 0x104424 to full red 0xff0000, and close to that we might find either some code that does the check, or a relevant variable that would lead us to the check code that set it.
+That is because it gives us a needle to search for in the massive amount of wasm bytecode: we know that something is going to turn the blackboard from its base color 0x104424 to full red 0xff0000, or maybe some kind of green (0x00ff00 ?), and close to that we might find either some code that does the check, or a relevant variable that would lead us to the check code that set it.
 
-Opening the wasm binary in chrome's devtools, we get a [WAT](https://developer.mozilla.org/en-US/docs/WebAssembly/Understanding_the_text_format) disassembly listing of the code, but all the constants are displayed in decimal instead of hex, so we search for:
+Opening the wasm binary in chrome's devtools, we get a [WAT](https://developer.mozilla.org/en-US/docs/WebAssembly/Understanding_the_text_format) disassembly listing of the code:
 
-- `  16711680` (0xff0000): no results
-- `4278190335` (0xff0000ff, rgb+alpha): no results either
-- ` -16776961` (0xff0000ff, as a signed 32bit integer): bingo
+![devtools wat disassembly](devtools_wat.png)
 
-We get two results: 
+All the constants are displayed in decimal instead of hex, so we have to convert when searching.   
+Searching for:
 
-![first hit for -16776961](red_1.png)
+- `  16711680` or `0xff0000  ` (red): no results
+- `4278190335` or `0xff0000ff` (red as rgb+alpha): no results either
+- `     65280` or `0x00ff00  ` (green): still nothing
+- `  16711935` or `0x00ff00ff` (green as rgb+alpha): *bingo*
 
-and
+We get a single hit for green, in the entire disassembly:
+
+![only hit for 16711935](green.png)
+
+Looking at the code around it, we also find the close constant -16776961, which is 0xff0000ff when read as a signed 32bit integer - that is the red we were looking for (but couldn't find due to not thinking of the correct format), further confirming that we're looking at relevant code.
+
+However, if we try to add a breakpoint in the part of the code that has the red constant then click on the check button, the blackboard turns red but the breakpoint is not hit. There might be more places where checks happen, so let's search for red as -16776961, now that we know that's how it shows up in the code. 
+
+We get two hits; one is the same place we were just at where we tried to add the breakpoint:
 
 ![second hit for -16776961](red_2.png)
 
-In the second result, we see the close constant 16711935 = 0x00ff00ff, which is bright green, further confirming that we're looking at something relevant. However, adding a breakpoint there and clicking on the check button does nothing.
+The other one is more interesting:
 
-In the first result however, we do hit our breakpoint! Inspecting the code directly above it, we see an if test on `$var2`, and just a little bit above, `$var2` is being set after some xoring with a few integer constants.
+![first hit for -16776961](red_1.png)
+
+Putting a breakpoint there and hitting check, it sucessfully triggers! Inspecting the code directly above, we see an if test on `$var2`, and just a little bit above, `$var2` is being set after some xoring with a few integer constants:
 
 ![suspicious xors](xors.png)
 
@@ -56,8 +68,10 @@ Once again converting to hex:
  - `$var105`: 3472328296345581367 = 0x3030303037373737 = '00007777'
  - `$var106`: 3906369333239297333 = 0x3636363635353535 = '66665555'
 
-Yep, these are the numbers we entered, only a little bit shuffled around from the order we entered them in.   
-Putting them in the correct order to cancel out all the xors with the constants gives the code `03846288465825344377192018362982`, which we type in and press check. This causes the screen to briefly flash red, and the code hits our second breakpoint from the previous search for red - progress!
+Yep, these are the numbers we entered, only a little bit shuffled around from the order we entered them in.
+
+Putting them in the correct order to cancel out all the xors with the constants gives the code `03846288465825344377192018362982`, which we type in and press check.    
+This causes the screen to briefly flash red, and the code hits our original breakpoint that wasn't being triggered before - progress!
 
 ![progress](image_check.png)
 
