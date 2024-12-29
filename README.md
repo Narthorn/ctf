@@ -1,4 +1,4 @@
-- [2024-04-20 to 2024-05-12, **404CTF 2024 (DGSE / HackademINT)** (fr, 1th place /  solvers)](2024-04-20_404CTF-2024)
+- [2024-04-20 to 2024-05-12, **404CTF 2024 (DGSE / HackademINT)** (fr, 1th place / 3267 solvers)](2024-04-20_404CTF-2024)
 - [2024-04-05 to 2024-04-14, **FCSC 2024** (fr, 5th place / 1126 solvers)](2024-04-05_FCSC-2024)
 - 2023-11-16 to 2023-11-30, **DG'hAck 2023** (fr, 3rd place / 436 solvers)
 - [2023-05-12 to 2023-06-04, **404CTF 2023 (DGSE / HackademINT)** (fr, 1st place / 2326 solvers)](2023-05-12_404CTF-2023) 
